@@ -118,6 +118,7 @@ The Book Management System is a RESTful API built with NestJS that enables compr
 3. WHEN requested resources do not exist, THE Book Management System SHALL return a 404 Not Found response
 4. WHEN unique constraint violations occur, THE Book Management System SHALL return a 409 Conflict response
 5. THE Book Management System SHALL implement custom exception filters for standardized error handling
+6. THE Book Management System SHALL maintain all HTTP status codes in a separate constants file for consistent usage across the application
 
 ### Requirement 10
 
@@ -125,8 +126,8 @@ The Book Management System is a RESTful API built with NestJS that enables compr
 
 #### Acceptance Criteria
 
-1. THE Book Management System SHALL include unit tests for all service layer CRUD operations using Jest framework
-2. THE Book Management System SHALL include end-to-end tests for critical API endpoints using Supertest
+1. THE Book Management System SHALL include unit tests for AuthorsService covering CRUD operations using Jest framework
+2. THE Book Management System SHALL include one end-to-end test for creating an author and retrieving it using Supertest
 3. THE Book Management System SHALL use mocking for external dependencies in unit tests
 4. THE Book Management System SHALL validate both successful operations and error conditions in test suites
 5. THE Book Management System SHALL maintain test coverage for data validation and business logic components
