@@ -100,7 +100,9 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## Database Choice Decision
 - For this demo, I used SQLite for simplicity, but in production, I’d use PostgreSQL because it offers better concurrency, indexing, and scalability.
+- I could also use MongoDB. In this case I would have to store the authorId as an Object ID inside the MongoDB Atlass in the books table. But its better for unstructured data like for when I will add other features like ratings and genres in my book management system.
 - SQLite is not suitable for production environments due to its single-process nature and lack of advanced features like replication and sharding.
+-
 
 ## Class Diagram
 
