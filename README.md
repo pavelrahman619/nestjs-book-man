@@ -101,3 +101,28 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ## Database Choice Decision
 - For this demo, I used SQLite for simplicity, but in production, I’d use PostgreSQL because it offers better concurrency, indexing, and scalability.
 - SQLite is not suitable for production environments due to its single-process nature and lack of advanced features like replication and sharding.
+
+## Class Diagram
+
+Below is the class diagram for the core entities in the Book Management system.
+
+```text
+Author
+- id: UUID (unique identifier)
+- firstName: string (required)
+- lastName: string (required)
+- bio: string (optional)
+- birthDate: Date (optional)
+- createdAt: Date (auto-generated)
+- updatedAt: Date (auto-generated)
+
+Book
+- id: UUID (unique identifier)
+- title: string (required)
+- isbn: string (unique, required) — e.g., "978-3-16-148410-0"
+- publishedDate: Date (optional)
+- genre: string (optional) — e.g., "Fantasy", "Science Fiction", "Thriller"
+- author: Author (relation, required)
+- createdAt: Date (auto-generated)
+- updatedAt: Date (auto-generated)
+```
