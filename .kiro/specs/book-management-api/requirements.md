@@ -131,3 +131,23 @@ The Book Management System is a RESTful API built with NestJS that enables compr
 3. THE Book Management System SHALL use mocking for external dependencies in unit tests
 4. THE Book Management System SHALL validate both successful operations and error conditions in test suites
 5. THE Book Management System SHALL maintain test coverage for data validation and business logic components
+
+### Requirement 11
+
+**User Story:** As a developer, I want a Postman collection for API testing, so that I can manually test and validate all backend endpoints during development.
+
+#### Acceptance Criteria
+
+1. THE Book Management System SHALL include a simple Postman collection file with all API endpoints for authors and books
+2. THE Book Management System SHALL provide basic example requests in the Postman collection
+3. THE Book Management System SHALL organize requests by Authors and Books in the Postman collection
+
+### Requirement 12
+
+**User Story:** As a developer, I want a simple API contract documentation, so that I can understand the API structure and endpoint specifications.
+
+#### Acceptance Criteria
+
+1. THE Book Management System SHALL include a simple API contract document listing all endpoints
+2. THE Book Management System SHALL document request and response formats for each endpoint
+3. THE Book Management System SHALL specify HTTP methods and status codes for each endpoint
