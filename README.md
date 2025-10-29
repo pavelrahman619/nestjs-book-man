@@ -96,3 +96,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+## Database Choice Decision
+- For this demo, I used SQLite for simplicity, but in production, I’d use PostgreSQL because it offers better concurrency, indexing, and scalability.
+- SQLite is not suitable for production environments due to its single-process nature and lack of advanced features like replication and sharding.
