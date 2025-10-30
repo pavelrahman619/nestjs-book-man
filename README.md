@@ -129,6 +129,13 @@ Book
 - updatedAt: Date (auto-generated)
 ```
 
+## Testing
+- For testing the Authors service spec test and the E2E tests run:
+
+```
+npm run test
+```
+
 ## Future Implementations Plan:
 - API Contract
 - Postman collection and environment
