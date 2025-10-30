@@ -71,7 +71,12 @@
   - Handle unique ISBN constraint violations and validation errors
   - _Requirements: 5.1, 5.5, 6.1, 6.5, 7.1, 7.2, 7.3, 7.4, 7.5, 8.1, 8.2, 8.3_
 
-- [ ] 7. Implement AuthorsController with REST endpoints
+- [x] 7. Implement AuthorsController with REST endpoints
+
+
+
+
+
   - Create AuthorsController with POST, GET, PATCH, DELETE endpoints
   - Implement proper HTTP status codes and response handling
   - Add UUID validation for path parameters using ParseUUIDPipe
