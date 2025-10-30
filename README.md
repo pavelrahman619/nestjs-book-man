@@ -129,5 +129,11 @@ Book
 - updatedAt: Date (auto-generated)
 ```
 
+## Future Implementations Plan:
+- API Contract
+- Postman collection and environment
+- Husky for managing pre commit and running npm run build before commits so errors can be found more easily. This will make it so that deployments run smoothly
+
 ## Live Site:
 https://nestjs-book-man.onrender.com/
+
