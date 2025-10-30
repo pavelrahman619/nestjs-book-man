@@ -20,4 +20,5 @@ export const HTTP_STATUS_CODES = {
   INTERNAL_SERVER_ERROR: 500,
 } as const;
 
-export type HttpStatusCode = typeof HTTP_STATUS_CODES[keyof typeof HTTP_STATUS_CODES];
+export type HttpStatusCode =
+  (typeof HTTP_STATUS_CODES)[keyof typeof HTTP_STATUS_CODES];

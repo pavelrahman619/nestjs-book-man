@@ -32,7 +32,7 @@ export class Book {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Author, author => author.books, { eager: true })
+  @ManyToOne(() => Author, (author) => author.books, { eager: true })
   @JoinColumn({ name: 'authorId' })
   author: Author;
 

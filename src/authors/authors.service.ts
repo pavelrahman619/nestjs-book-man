@@ -1,6 +1,10 @@
-import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  ConflictException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Like } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Author } from './entities/author.entity';
 import { Book } from '../books/entities/book.entity';
 import { CreateAuthorDto } from './dto/create-author.dto';
@@ -24,7 +28,9 @@ export class AuthorsService {
   async create(createAuthorDto: CreateAuthorDto): Promise<Author> {
     const author = this.authorsRepository.create({
       ...createAuthorDto,
-      birthDate: createAuthorDto.birthDate ? new Date(createAuthorDto.birthDate) : undefined,
+      birthDate: createAuthorDto.birthDate
+        ? new Date(createAuthorDto.birthDate)
+        : undefined,
     });
 
     return await this.authorsRepository.save(author);
@@ -35,7 +41,9 @@ export class AuthorsService {
    * @param queryDto - Query parameters for pagination and search
    * @returns Promise<{ data: Author[]; total: number }> - Paginated authors with total count
    */
-  async findAll(queryDto: QueryAuthorDto): Promise<{ data: Author[]; total: number }> {
+  async findAll(
+    queryDto: QueryAuthorDto,
+  ): Promise<{ data: Author[]; total: number }> {
     const { page = 1, limit = 10, firstName, lastName } = queryDto;
     const skip = (page - 1) * limit;
 
@@ -101,17 +109,23 @@ export class AuthorsService {
     // Merge the update data
     const updatedData = {
       ...updateAuthorDto,
-      birthDate: updateAuthorDto.birthDate ? new Date(updateAuthorDto.birthDate) : author.birthDate,
+      birthDate: updateAuthorDto.birthDate
+        ? new Date(updateAuthorDto.birthDate)
+        : author.birthDate,
     };
 
     await this.authorsRepository.update(id, updatedData);
 
     // Return the updated author
-    const updatedAuthor = await this.authorsRepository.findOne({ where: { id } });
+    const updatedAuthor = await this.authorsRepository.findOne({
+      where: { id },
+    });
     if (!updatedAuthor) {
-      throw new NotFoundException(`Author with ID ${id} not found after update`);
+      throw new NotFoundException(
+        `Author with ID ${id} not found after update`,
+      );
     }
-    
+
     return updatedAuthor;
   }
 

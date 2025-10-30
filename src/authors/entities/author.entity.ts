@@ -31,6 +31,6 @@ export class Author {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => Book, book => book.author)
+  @OneToMany(() => Book, (book) => book.author)
   books: Book[];
 }

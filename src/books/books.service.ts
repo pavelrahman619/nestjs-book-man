@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException, ConflictException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  ConflictException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, QueryFailedError } from 'typeorm';
 import { Book } from './entities/book.entity';
@@ -28,21 +33,30 @@ export class BooksService {
       await this.authorsService.findOne(createBookDto.authorId);
     } catch (error) {
       if (error instanceof NotFoundException) {
-        throw new BadRequestException(`Author with ID ${createBookDto.authorId} does not exist`);
+        throw new BadRequestException(
+          `Author with ID ${createBookDto.authorId} does not exist`,
+        );
       }
       throw error;
     }
 
     const book = this.booksRepository.create({
       ...createBookDto,
-      publishedDate: createBookDto.publishedDate ? new Date(createBookDto.publishedDate) : undefined,
+      publishedDate: createBookDto.publishedDate
+        ? new Date(createBookDto.publishedDate)
+        : undefined,
     });
 
     try {
       return await this.booksRepository.save(book);
     } catch (error) {
-      if (error instanceof QueryFailedError && error.message.includes('UNIQUE constraint')) {
-        throw new ConflictException(`Book with ISBN ${createBookDto.isbn} already exists`);
+      if (
+        error instanceof QueryFailedError &&
+        error.message.includes('UNIQUE constraint')
+      ) {
+        throw new ConflictException(
+          `Book with ISBN ${createBookDto.isbn} already exists`,
+        );
       }
       throw error;
     }
@@ -53,11 +67,14 @@ export class BooksService {
    * @param queryDto - Query parameters for pagination, search, and filtering
    * @returns Promise<{ data: Book[]; total: number }> - Paginated books with total count
    */
-  async findAll(queryDto: QueryBookDto): Promise<{ data: Book[]; total: number }> {
+  async findAll(
+    queryDto: QueryBookDto,
+  ): Promise<{ data: Book[]; total: number }> {
     const { page = 1, limit = 10, title, isbn, authorId } = queryDto;
     const skip = (page - 1) * limit;
 
-    const queryBuilder = this.booksRepository.createQueryBuilder('book')
+    const queryBuilder = this.booksRepository
+      .createQueryBuilder('book')
       .leftJoinAndSelect('book.author', 'author');
 
     // Apply search filters if provided
@@ -129,7 +146,9 @@ export class BooksService {
         await this.authorsService.findOne(updateBookDto.authorId);
       } catch (error) {
         if (error instanceof NotFoundException) {
-          throw new BadRequestException(`Author with ID ${updateBookDto.authorId} does not exist`);
+          throw new BadRequestException(
+            `Author with ID ${updateBookDto.authorId} does not exist`,
+          );
         }
         throw error;
       }
@@ -138,14 +157,21 @@ export class BooksService {
     // Prepare update data
     const updatedData = {
       ...updateBookDto,
-      publishedDate: updateBookDto.publishedDate ? new Date(updateBookDto.publishedDate) : book.publishedDate,
+      publishedDate: updateBookDto.publishedDate
+        ? new Date(updateBookDto.publishedDate)
+        : book.publishedDate,
     };
 
     try {
       await this.booksRepository.update(id, updatedData);
     } catch (error) {
-      if (error instanceof QueryFailedError && error.message.includes('UNIQUE constraint')) {
-        throw new ConflictException(`Book with ISBN ${updateBookDto.isbn} already exists`);
+      if (
+        error instanceof QueryFailedError &&
+        error.message.includes('UNIQUE constraint')
+      ) {
+        throw new ConflictException(
+          `Book with ISBN ${updateBookDto.isbn} already exists`,
+        );
       }
       throw error;
     }
