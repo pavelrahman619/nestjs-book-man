@@ -127,7 +127,12 @@
   - Test pagination, search, and filtering functionality
   - _Requirements: 10.1, 10.3, 10.4, 10.5_
 
-- [ ] 12. Create end-to-end test for author operations
+- [x] 12. Create end-to-end test for author operations
+
+
+
+
+
 
   - Write one comprehensive e2e test for creating an author and retrieving it using Supertest
   - Test the complete request-response cycle through the HTTP layer
