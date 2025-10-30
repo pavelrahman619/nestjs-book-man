@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from 'typeorm';
+import { Book } from '../../books/entities/book.entity';
 
 @Entity('authors')
 export class Author {
@@ -30,7 +31,6 @@ export class Author {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  // Note: OneToMany relationship with Book will be added when Book entity is implemented
-  // @OneToMany(() => Book, book => book.author)
-  // books: Book[];
+  @OneToMany(() => Book, book => book.author)
+  books: Book[];
 }

@@ -34,7 +34,12 @@
   - Implement QueryAuthorDto with pagination and search parameters
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.2, 2.3, 3.1, 3.3_
 
-- [ ] 4. Implement Book entity and DTOs with author relationships
+- [x] 4. Implement Book entity and DTOs with author relationships
+
+
+
+
+
   - Create Book entity with TypeORM decorators, unique ISBN constraint, and author relationship
   - Implement CreateBookDto with validation including ISBN and authorId validation
   - Create UpdateBookDto extending PartialType of CreateBookDto
