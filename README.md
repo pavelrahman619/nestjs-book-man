@@ -140,6 +140,7 @@ npm run test
 - API Contract
 - Postman collection and environment
 - Husky for managing pre commit and running npm run build before commits so errors can be found more easily. This will make it so that deployments run smoothly
+- Add env for local and production
 
 ## Live Site:
 https://nestjs-book-man.onrender.com/
