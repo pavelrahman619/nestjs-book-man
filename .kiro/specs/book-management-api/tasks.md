@@ -1,6 +1,11 @@
 # Implementation Plan
 
-- [ ] 1. Set up project dependencies and database configuration
+- [x] 1. Set up project dependencies and database configuration
+
+
+
+
+
   - Install required dependencies: class-validator, class-transformer, @nestjs/typeorm, typeorm, sqlite3
   - Configure TypeORM module with SQLite database connection
   - Set up global validation pipe with transform and whitelist options
@@ -86,4 +91,5 @@
   - Document HTTP methods, status codes, and example payloads for each endpoint
   - Create basic Postman collection with all API endpoints organized by Authors and Books
   - Include example requests with sample data in the Postman collection
+  - Create Postman collection for the environments
   - _Requirements: 11.1, 11.2, 11.3, 12.1, 12.2, 12.3_
