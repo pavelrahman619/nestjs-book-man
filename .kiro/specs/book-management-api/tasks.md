@@ -83,7 +83,12 @@
   - Handle query parameters for pagination and search functionality
   - _Requirements: 1.1, 1.5, 2.1, 2.4, 2.5, 3.1, 3.4, 3.5, 4.1, 4.2_
 
-- [ ] 8. Implement BooksController with REST endpoints
+- [x] 8. Implement BooksController with REST endpoints
+
+
+
+
+
   - Create BooksController with POST, GET, PATCH, DELETE endpoints
   - Implement proper HTTP status codes and response handling
   - Add UUID validation for path parameters using ParseUUIDPipe
