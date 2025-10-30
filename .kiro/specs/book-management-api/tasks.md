@@ -22,7 +22,12 @@
   - Configure global exception filter in main application
   - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6_
 
-- [ ] 3. Implement Author entity and DTOs
+- [x] 3. Implement Author entity and DTOs
+
+
+
+
+
   - Create Author entity with TypeORM decorators and proper field validation
   - Implement CreateAuthorDto with validation decorators for required and optional fields
   - Create UpdateAuthorDto extending PartialType of CreateAuthorDto
