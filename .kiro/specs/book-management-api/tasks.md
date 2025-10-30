@@ -46,7 +46,13 @@
   - Implement QueryBookDto with pagination, search, and author filtering parameters
   - _Requirements: 5.1, 5.2, 5.3, 5.4, 6.1, 6.2, 6.3, 6.4, 7.1, 7.4_
 
-- [ ] 5. Create AuthorsService with CRUD operations
+- [x] 5. Create AuthorsService with CRUD operations
+
+
+
+
+
+
   - Implement AuthorsService with create, findAll, findOne, update, and remove methods
   - Add pagination and search functionality for author queries
   - Implement hasBooks method to check for associated books before deletion
@@ -81,7 +87,8 @@
   - Configure module dependencies and exports properly
   - _Requirements: 1.1, 2.1, 5.1, 6.1_
 
-- [ ]* 10. Write unit tests for AuthorsService
+- [ ] 10. Write unit tests for AuthorsService
+
   - Create comprehensive unit tests for AuthorsService CRUD operations using Jest
   - Mock Repository dependencies and test both successful operations and error conditions
   - Test pagination, search functionality, and hasBooks method
@@ -95,7 +102,8 @@
   - Test pagination, search, and filtering functionality
   - _Requirements: 10.1, 10.3, 10.4, 10.5_
 
-- [ ]* 12. Create end-to-end test for author operations
+- [ ] 12. Create end-to-end test for author operations
+
   - Write one comprehensive e2e test for creating an author and retrieving it using Supertest
   - Test the complete request-response cycle through the HTTP layer
   - Validate proper status codes and response format

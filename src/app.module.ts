@@ -2,16 +2,20 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthorsModule } from './authors/authors.module';
+import { Author } from './authors/entities/author.entity';
+import { Book } from './books/entities/book.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'book-management.db',
-      entities: [],
+      entities: [Author, Book],
       synchronize: true, // Only for development
       logging: process.env.NODE_ENV === 'development',
     }),
+    AuthorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
